@@ -2,11 +2,18 @@ import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import Banner from "../../components/numbanner";
 
-export default function Event({ eventId }) {
-    const decoded = new Buffer(eventId, 'base64')
-    const {date, event} = JSON.parse(decoded)
-    const date1 = new Date(date);
-    const diffTime = Math.abs(new Date() - date1);
+function decode(eventId) {
+    if (eventId) {
+        const decoded = new Buffer(eventId, 'base64')
+        const {date, event} = JSON.parse(decoded)
+        return {date: new Date(date), event};
+    }
+    return {date : new Date(), event: ''}
+}
+
+export default function Event({eventId}) {
+    const {date, event} = decode(eventId);
+    const diffTime = Math.abs(new Date() - date);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return (
         <div className={styles.container}>
@@ -43,5 +50,5 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-    return {paths: [], fallback :true}
+    return {paths: [], fallback: true}
 }
