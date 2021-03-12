@@ -5,6 +5,14 @@ import {useRouter} from 'next/router'
 
 export default function Home() {
     const router = useRouter()
+
+    const handleClick = (e) => {
+        const stringfy = JSON.stringify({date: e.target.date.value, event: e.target.event.value})
+        const content = new Buffer(stringfy).toString("base64")
+        e.preventDefault()
+        router.push('/event/'+content)
+    }
+
     return (
         <div className={styles.container}>
             <Head>
@@ -13,10 +21,16 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
+                <form onSubmit={handleClick}>
+                    <label>Data</label>
+                    <input id="date"/>
+                    <label>Evento</label>
+                    <input id="event"/>
+                    <button>Compartilhar</button>
+                </form>
                 <h1 className={styles.title}>
                     Estamos a
                 </h1>
-                <Banner/>
                 <p className={styles.title}>
                     dias
                 </p>

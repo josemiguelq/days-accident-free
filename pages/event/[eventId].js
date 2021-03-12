@@ -4,8 +4,8 @@ import Banner from "../../components/numbanner";
 
 export default function Event({ eventId }) {
     const decoded = new Buffer(eventId, 'base64')
-    const {data, event} = JSON.parse(decoded)
-    const date1 = new Date(data);
+    const {date, event} = JSON.parse(decoded)
+    const date1 = new Date(date);
     const diffTime = Math.abs(new Date() - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return (
@@ -24,7 +24,7 @@ export default function Event({ eventId }) {
                     dias
                 </p>
                 <h1 className={styles.description}>
-                    sem incidentes em prod sem incidentes em prod sem incidentes em prod
+                    {event}
                 </h1>
             </main>
 
