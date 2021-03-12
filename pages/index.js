@@ -1,31 +1,39 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Banner from "../components/numbanner";
+import React, {useState} from "react"
 import {useRouter} from 'next/router'
 
 export default function Home() {
     const router = useRouter()
 
+    const [event, setEvent] = useState(null);
+
     const handleClick = (e) => {
         const stringfy = JSON.stringify({date: e.target.date.value, event: e.target.event.value})
         const content = new Buffer(stringfy).toString("base64")
         e.preventDefault()
-        router.push('/event/'+content)
+        router.push('/event/' + content)
     }
-
+    const handleEvent = (newEvent) => {
+        setEvent(newEvent);
+    };
     return (
         <div className={styles.container}>
             <Head>
-                <title>Create Next App</title>
+                <title>Dias sem</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
             <main className={styles.main}>
                 <form onSubmit={handleClick}>
-                    <label>Data</label>
-                    <input id="date"/>
-                    <label>Evento</label>
-                    <input id="event"/>
+                    <div>
+                        <label>Data</label>
+                        <input id="date"/>
+                    </div>
+                    <div>
+                        <label>Evento</label>
+                        <input id="event"/>
+                    </div>
                     <button>Compartilhar</button>
                 </form>
                 <h1 className={styles.title}>
@@ -34,9 +42,9 @@ export default function Home() {
                 <p className={styles.title}>
                     dias
                 </p>
-                    <h1 className={styles.description}>
-                        sem incidentes em prod
-                    </h1>
+                <h1 className={styles.description}>
+                    {event}
+                </h1>
             </main>
 
             <footer className={styles.footer}>

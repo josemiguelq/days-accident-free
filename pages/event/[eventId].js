@@ -27,9 +27,8 @@ export default function Event({eventId}) {
                     Estamos a
                 </h1>
                 <Banner days={diffDays}/>
-                <p className={styles.title}>
-                    dias
-                </p>
+                {diffDays === 1 && <p className={styles.title}>dia</p>}
+                {diffDays >= 1 && <p className={styles.title}>dias</p>}
                 <h1 className={styles.description}>
                     {event}
                 </h1>
