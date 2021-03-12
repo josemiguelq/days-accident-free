@@ -20,7 +20,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Dias sem</title>
+                <title>Dias sem acidentes</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 

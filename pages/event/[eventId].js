@@ -18,7 +18,7 @@ export default function Event({eventId}) {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Create Next App</title>
+                <title>Estamos a {diffDays} {event}</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
