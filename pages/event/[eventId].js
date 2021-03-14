@@ -15,6 +15,7 @@ export default function Event({eventId}) {
     const {date, event} = decode(eventId);
     const diffTime = Math.abs(new Date() - date);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const daysValidated = diffDays < 0 ? 0 : diffDays
     const daysString = diffDays === 1 ? 'dia' : 'dias'
     return (
         <div className={styles.container}>
@@ -27,7 +28,7 @@ export default function Event({eventId}) {
                 <h1 className={styles.title}>
                     Estamos a
                 </h1>
-                <Banner days={diffDays}/>
+                <Banner days={daysValidated}/>
                     <p className={styles.title}>{daysString}</p>
                 <h1 className={styles.description}>
                     {event}
