@@ -1,0 +1,20 @@
+.button {
+  width: 100%;
+  border-radius: 0.25rem;
+  background-color: hsl(0, 0%, 13%);
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  transition: 100ms linear;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: hsl(0, 0%, 26%);
+}
+
+.button:focus {
+  outline: none;
+  background-color: hsl(0, 0%, 26%);
+  box-shadow: 0 0 0 3px rgb(118 169 250 / 45%);
+}
