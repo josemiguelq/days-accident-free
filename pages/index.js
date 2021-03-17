@@ -1,54 +1,53 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import React, {useState} from "react"
-import {useRouter} from 'next/router'
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Head from "next/head";
+
+import { encode } from "../utils/base64";
+
+import styles from "../styles/Home.module.css";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 export default function Home() {
-    const router = useRouter()
+  const router = useRouter();
 
-    const [event, setEvent] = useState(null);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const content = encode({
+      date: e.target.date.value,
+      event: e.target.event.value,
+    });
+    router.push("/event/" + content);
+  };
 
-    const handleClick = (e) => {
-        const stringfy = JSON.stringify({date: e.target.date.value, event: e.target.event.value})
-        const content = new Buffer(stringfy).toString("base64")
-        e.preventDefault()
-        router.push('/event/' + content)
-    }
-    const handleEvent = (newEvent) => {
-        setEvent(newEvent);
-    };
-    return (
-        <div className={styles.container}>
-            <Head>
-                <title>Dias sem acidentes</title>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Dias sem acidentes</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-            <main className={styles.main}>
-                <form onSubmit={handleClick}>
-                    <div>
-                        <label>Data</label>
-                        <input id="date"/>
-                    </div>
-                    <div>
-                        <label>Evento</label>
-                        <input id="event"/>
-                    </div>
-                    <button>Compartilhar</button>
-                </form>
-                <h1 className={styles.title}>
-                    Estamos a
-                </h1>
-                <p className={styles.title}>
-                    dias
-                </p>
-                <h1 className={styles.description}>
-                    {event}
-                </h1>
-            </main>
+      <main className={styles.main}>
+        <h1 className={styles.title}>Estamos a</h1>
+        <p className={styles.title}>dias</p>
 
-            <footer className={styles.footer}>
-            </footer>
-        </div>
-    )
+        <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+          <Input
+            type="date"
+            id="date"
+            label="Data do começo"
+            placeholder="Ex.: 04/07/2020"
+          />
+          <Input
+            type="text"
+            label="Evento"
+            id="event"
+            placeholder="Ex.: sem cair em prod"
+          />
+
+          <Button type="submit">Compartilhar</Button>
+        </form>
+      </main>
+    </div>
+  );
 }
