@@ -23,6 +23,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
+        <script data-ad-client="ca-pub-2771774186000948" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <title>🤔 Estamos a quantos dias sem incidentes?</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
