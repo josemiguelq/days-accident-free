@@ -1,0 +1,32 @@
+.group {
+  margin: 1rem 0;
+}
+
+.input {
+  padding: 0.75rem 0.75rem;
+  border: 2px solid hsl(0, 0%, 13%);
+  background-color: hsl(198, 2%, 98%);
+  width: 100%;
+  transition: 100ms linear;
+  border-radius: 0.25rem;
+}
+
+.input:hover {
+  border-color: hsl(0, 0%, 39%);
+}
+
+.input:focus {
+  outline: none;
+  border-color: hsl(0, 0%, 39%);
+  box-shadow: 0 0 0 3px rgb(118 169 250 / 45%);
+}
+
+.input::placeholder {
+  color: hsl(198, 10%, 65%);
+}
+
+.label {
+  display: block;
+  color: hsl(0, 0%, 13%);
+  padding-bottom: 0.25rem;
+}
