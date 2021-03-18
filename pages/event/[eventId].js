@@ -21,10 +21,14 @@ export default function Event({ date, event }) {
   return (
     <div className={styles.container}>
       <Head>
+
         <title>
           Estamos a {daysValidated} {daysString}...
         </title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={event+' - Crie sua placa também!'}/>
+        <meta name="keywords" content="days, accident, free, online"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
 
       <main className={styles.card}>
