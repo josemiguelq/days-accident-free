@@ -23,12 +23,13 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Estamos a quantos dias sem incidentes? 🤔</title>
+        <title>🤔 Estamos a quantos dias sem incidentes?</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Estamos a quantos dias?</h1>
+        <h1 className={styles.title}>Estamos a</h1>
+        <p className={styles.title}>quantos dias?</p>
 
         <form style={{ width: "100%" }} onSubmit={handleSubmit}>
           <Input
