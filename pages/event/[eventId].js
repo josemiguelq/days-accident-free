@@ -12,10 +12,10 @@ export default function Event({ date, event }) {
   if (router.isFallback) {
     return null;
   }
-
-  const diffTime = Math.abs(new Date() - new Date(date));
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  const daysValidated = diffDays < 0 ? 0 : diffDays;
+  const splited = date.split('-');
+  const diffTime = Math.abs(new Date() - new Date(splited[0], splited[1] -1, splited[2].split('T')[0]));
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+  const daysValidated = diffDays < 1 ? 0 : Math.ceil(diffDays);
   const daysString = diffDays === 1 ? "dia" : "dias";
 
   return (
@@ -27,7 +27,7 @@ export default function Event({ date, event }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.card}>
         <h1 className={styles.title}>Estamos a</h1>
         <Banner days={daysValidated} />
         <p className={styles.title}>{daysString}</p>
