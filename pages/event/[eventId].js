@@ -22,7 +22,7 @@ export default function Event({ date, event }) {
     <div className={styles.container}>
       <Head>
         <title>
-          Estamos a {diffDays} dias {event}
+          Estamos a {daysValidated} dias {event}
         </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
