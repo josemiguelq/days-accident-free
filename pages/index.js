@@ -28,8 +28,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Estamos a</h1>
-        <p className={styles.title}>dias</p>
+        <h1 className={styles.title}>Estamos a quantos dias?</h1>
 
         <form style={{ width: "100%" }} onSubmit={handleSubmit}>
           <Input
