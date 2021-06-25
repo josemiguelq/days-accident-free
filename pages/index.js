@@ -24,6 +24,8 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>🤔 Estamos a quantos dias sem incidentes?</title>
+        <meta name="description" content="Placa online para acompanhar dias sem acidentes"/>
+        <meta name="keywords" content="days, accident, free, online, placa, dias sem incidentes, acidentes, acompanhar online"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

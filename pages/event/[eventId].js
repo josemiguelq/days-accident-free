@@ -27,7 +27,7 @@ export default function Event({ date, event }) {
         </title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={event+' - Crie sua placa também!'}/>
-        <meta name="keywords" content="days, accident, free, online"/>
+        <meta name="keywords" content="days, accident, free, online, placa, dias sem incidentes, acidentes, acompanhar online"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </Head>
 
