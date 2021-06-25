@@ -23,6 +23,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
+        <script data-ad-client="ca-pub-2771774186000948" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <title>🤔 Estamos a quantos dias sem incidentes?</title>
         <meta name="description" content="Placa online para acompanhar dias sem acidentes"/>
         <meta name="keywords" content="days, accident, free, online, placa, dias sem incidentes, acidentes, acompanhar online"/>
